@@ -1,20 +1,32 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
+const express = require("express");
+const db = require("./config/database");
+const { ApolloServer, gql } = require("apollo-server-express");
+const schema = require('./schema/schema');
+const resolver = require('./schema/resolver')
 
 
 
-const uri =
-  'mongodb+srv://panda01:g0858365563@panda.lorcwxb.mongodb.net/api_login?retryWrites=true&w=majority';
-mongoose
-  .connect(uri)
-  .then(() => console.log('connected db'))
-  .catch((error) => console.log('connection failed'));
-  app.use(express.json())
 
-const usersRouter = require('./routes/auth')
+async function startServer() {
+  db.authenticate()
+    .then(() => console.log("database connected"))
+    .catch((err) => console.log("Eror : " + err));
 
-app.use('/',usersRouter)
+  const app = express();
+  const apolloServer = new ApolloServer({
+    schema,
+    resolver,
+  });
 
+  await apolloServer.start();
 
-app.listen(5050, () => console.log('Server started in port', 5050));
+   apolloServer.applyMiddleware({ app:app , path: '/users'})
+
+   app.use((req, res) => {
+    res.json('hello')
+   } )
+
+  app.listen(5050, () => console.log("Server started in port", 5050));
+}
+
+startServer();

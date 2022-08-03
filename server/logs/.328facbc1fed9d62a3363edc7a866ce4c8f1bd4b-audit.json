@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 90
+    },
+    "auditLog": "/Users/panda/Project_Login/server/logs/.328facbc1fed9d62a3363edc7a866ce4c8f1bd4b-audit.json",
+    "files": [
+        {
+            "date": 1659521051055,
+            "name": "/Users/panda/Project_Login/server/logs/error-2022-08-03.log",
+            "hash": "3908cc5b56d118ab3c31d222fe95bc60c954129cdfdd1e776f26b3d393653f47"
+        }
+    ],
+    "hashType": "sha256"
+}

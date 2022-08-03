@@ -1,28 +1,53 @@
-const mongoose = require("mongoose")
-const bcrypt = require('bcrypt')
+const {  Sequelize } = require("sequelize");
+const db = require("../config/database");
 
-const schema = new mongoose.Schema({
-    name:  { type: String ,required: true, trim: true},
-    email: { type: String, required: true, trim: true, unique: true, index: true },
-    password: { type: String, required: true, trim: true , minlength: 3 },
-    role: { type: String, default: 'member' }
-  },{
-    collection: 'users'
-  });
+const Users = db.define(
+  "users",
+  {
+    firstname: {
+      type: Sequelize.STRING,
+    },
+    lastname: {
+      type: Sequelize.STRING,
+    },
+    username: {
+      type: Sequelize.STRING,
+    },
+    email: {
+      type: Sequelize.STRING,
+    },
+    hash: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    tOtpToken: {
+      type: Sequelize.UUID,
+    },
+    role: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    loggedInCount: {
+      type: Sequelize.INTEGER,
+      default: 0,
+    },
+    loggedInTimestamp: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    },
+    createdAt: {
+      type: Sequelize.DATE,
+    },
+    updatedAt: {
+      type: Sequelize.DATE,
+    }
+  },
+  {
+    freezeTableName: true,
+    timestamps: false,
+    underscored: true
+  }
 
-  schema.methods.encryptPassword = async function(password) {
-    const salt = await bcrypt.genSalt(5);
-    const hashPassword = await bcrypt.hash(password, salt);
-    return hashPassword;
- }
- schema.methods.checkPassword = async function(password) {
-    const isValid = await bcrypt.compare(password, this.password);
-    return isValid;
- }
+);
 
-
-
-
-
-  const UserModel = mongoose.model('User', schema);
-module.exports = UserModel
+module.exports = Users
