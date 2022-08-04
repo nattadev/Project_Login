@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const User = require('../model/user');
+const User = require('../model');
 const moment = require('moment');
 const Sequelize = require('sequelize');
 const { Utility } = require('rpro-utility');
@@ -45,7 +45,8 @@ class LoginService extends BaseService {
         }
         data.loggedInTimestamp = Date.now();
         let user;
-        const transaction = await sequelize.transaction(ISOLATION);
+        const transaction = await 
+        sequelize.transaction(ISOLATION);
         try {
           user = await User.updateOne({
             filter,

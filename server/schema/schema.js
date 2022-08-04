@@ -7,17 +7,6 @@ const schema = makeExecutableSchema({
       UserLogin(query: UserLoginInput!): UserOutput
 
     }
-
-    input UserLoginRedeemInput {
-      token: String!
-    }
-    input UserListInput {
-      station_id: String
-      status: [String!]
-    }
-    input UserFullNameInput {
-      full_name: String!
-    }
     input UserStationInput {
       user_id: String!
       station: StationGroupInput!
@@ -35,23 +24,8 @@ const schema = makeExecutableSchema({
       id: String!
       group: String!
     }
-    input UserSubscribeInput {
-      player_id: String!
-    }
-    input UserUploadPictureInput {
-      image: String!
-    }
-    input UserUpdateProfileInput {
-      user_id: String!
-      firstname: String!
-      lastname: String!
-      email: String!
-      phone: String
-      employee_id: String
-    }
-    input UserDeleteInput {
-      user_id: String!
-    }
+ 
+
     input UserLoginInput {
       username: String!
       password: String!
@@ -59,28 +33,7 @@ const schema = makeExecutableSchema({
     input UserQueryInput {
       user_id: String!
     }
-    input UserRegisterInput {
-      firstname: String!
-      lastname: String!
-      username: String!
-      email: String!
-      phone: String
-      employee_id: String
-      is_admin: Boolean
-    }
-    input UserResetPasswordInput {
-      user_id: String!
-    }
-    input UserChangePasswordInput {
-      old_pwd: String!
-      new_pwd: String!
-    }
-    type UserSecretOutput {
-      secret: String!
-    }
-    input UserTOtpInput {
-      t_otp: String!
-    }
+
     type UserOutput {
       id: String!
       firstname: String!
