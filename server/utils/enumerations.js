@@ -1,0 +1,16 @@
+const USER_ROLE = {
+  SUPER_ADMIN: 'SUPER_ADMIN',
+  USER: 'USER',
+};
+  
+const USER_STATUS = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  LOCKED: 'LOCKED',
+  DELETED: 'DELETED',
+};
+
+module.exports = {
+  USER_ROLE,
+  USER_STATUS,
+}

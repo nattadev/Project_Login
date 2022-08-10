@@ -9,6 +9,26 @@
             "date": 1659521051055,
             "name": "/Users/panda/Project_Login/server/logs/error-2022-08-03.log",
             "hash": "3908cc5b56d118ab3c31d222fe95bc60c954129cdfdd1e776f26b3d393653f47"
+        },
+        {
+            "date": 1659580268216,
+            "name": "/Users/panda/Project_Login/server/logs/error-2022-08-04.log",
+            "hash": "342949920f4b375c5d8922edc4031f4c438013999a4a153022587cce27f27844"
+        },
+        {
+            "date": 1659667307954,
+            "name": "/Users/panda/Project_Login/server/logs/error-2022-08-05.log",
+            "hash": "2c096b606e4a3574071c4a043ccfd44aaf3b02e761b7dcf313b689854046760f"
+        },
+        {
+            "date": 1659940458971,
+            "name": "/Users/panda/Project_Login/server/logs/error-2022-08-08.log",
+            "hash": "5d7c0d3737eec16f59654bc061ecdf028167720771f532068c1a508fb494bd76"
+        },
+        {
+            "date": 1660027685363,
+            "name": "/Users/panda/Project_Login/server/logs/error-2022-08-09.log",
+            "hash": "56cada5c053ad325bf1da957c80fb9db50d792a3c80b85ec200dd25de4405eed"
         }
     ],
     "hashType": "sha256"

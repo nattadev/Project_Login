@@ -4,15 +4,11 @@ const { ApolloServer } = require("apollo-server-express");
 const schema = require('./schema');
 
 
-
-
-
-
-
 async function startServer() {
   db.authenticate()
     .then(() => console.log("database connected"))
     .catch((err) => console.log("Eror : " + err));
+ 
     
   const app = express();
   const apolloServer = new ApolloServer({
